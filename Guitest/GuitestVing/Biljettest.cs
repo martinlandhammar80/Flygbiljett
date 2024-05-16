@@ -30,7 +30,7 @@ namespace GuitestVing
             driver.FindElement(By.PartialLinkText("Larnaca")).Click();
             driver.FindElement(By.LinkText("Boka")).Click();
 
-            System.Threading.Thread.Sleep(1000);
+            Thread.Sleep(1000);
 
             var browserTabs = driver.WindowHandles;
             driver.SwitchTo().Window(browserTabs[1]);
@@ -46,10 +46,10 @@ namespace GuitestVing
 
             helper.ScrollToTop(driver);
 
-            System.Threading.Thread.Sleep(1000);
+            Thread.Sleep(1000);
 
             driver.FindElement(By.XPath("/html/body/div[1]/div[2]/div/div[2]/div/div/div/div[2]/div[1]/div[2]/div/div/div[1]/div[1]/div[3]/div/div[1]/div/div")).Click();
-            System.Threading.Thread.Sleep(1000);
+            Thread.Sleep(1000);
             driver.FindElement(By.XPath("/html/body/div[1]/div[2]/div/div[2]/div/div/div/div[2]/div[1]/div[2]/div/div/div[1]/div[1]/div[3]/div/div[3]/div/div[1]/div/div/div/div[2]/div[1]/button[2]")).Click();
 
             helper.WaitForElement(driver, "//*[text()='juli 2024']");
@@ -68,7 +68,7 @@ namespace GuitestVing
             driver.FindElement(By.XPath("//*[text()='Klar']")).Click();
             driver.FindElement(By.XPath("/html/body/div[1]/div[2]/div/div[2]/div/div/div/div[2]/div[1]/div[2]/div/div/div[2]/button")).Click();
 
-            System.Threading.Thread.Sleep(1000);
+            Thread.Sleep(1000);
 
             var textResult = driver.FindElement(By.XPath("/html/body/div[1]/div[2]/div/div[4]/div/div[2]/div[2]/div/div/div[1]/div[2]/div/div[3]/div[1]/div[2]/div[2]/div[1]/span[1]")).GetAttribute("textContent").Trim();
 
