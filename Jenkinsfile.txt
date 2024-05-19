@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         // Define environment variables if needed
-        GITHUB_REPO_URL = 'https://github.com/your-repo/your-project.git'
+        GITHUB_REPO_URL = 'https://github.com/martinlandhammar80/Flygbiljett.git'
         TEST_RESULTS_DIR = 'TestResults'
     }
 
