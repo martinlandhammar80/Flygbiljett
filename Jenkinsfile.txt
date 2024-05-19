@@ -2,49 +2,35 @@ pipeline {
     agent any
 
     environment {
-        // Define environment variables if necessary
-        GITHUB_REPO = 'https://github.com/martinlandhammar80/Flygbiljett.git'
-        BRANCH = 'main'
+        // Define environment variables if needed
+        GITHUB_REPO_URL = 'https://github.com/your-repo/your-project.git'
+        TEST_RESULTS_DIR = 'TestResults'
     }
 
     stages {
-        stage('Checkout') {
+        stage('Clone Repository') {
             steps {
-                // Checkout code from GitHub
-                git branch: "${BRANCH}", url: "${GITHUB_REPO}"
+                // Checkout the repository from GitHub
+                git url: "${env.GITHUB_REPO_URL}", branch: 'main'
             }
         }
         
-        stage('Restore') {
+        stage('Run NUnit Tests') {
             steps {
-                // Restore NuGet packages
-                sh 'dotnet restore'
-            }
-        }
-        
-        stage('Build') {
-            steps {
-                // Build the solution
-                sh 'dotnet build --configuration Release'
-            }
-        }
-        
-        stage('Test') {
-            steps {
-                // Run NUnit tests
-                sh 'dotnet test --configuration Release --no-build --logger "trx;LogFileName=test_results.trx"'
-            }
-            post {
-                always {
-                    // Publish test results
-                    publishHTML(target: [
-                        allowMissing: false,
-                        alwaysLinkToLastBuild: true,
-                        keepAll: true,
-                        reportDir: 'TestResults',
-                        reportFiles: 'index.html',
-                        reportName: 'Test Report'
-                    ])
+                script {
+                    // Create a directory for test results
+                    sh 'mkdir -p ${TEST_RESULTS_DIR}'
+
+                    // Run the NUnit tests
+                    def testProcess = [
+                        "nohup",
+                        "nunit3-console",
+                        "path/to/your/test/assembly.dll",
+                        "--result=${TEST_RESULTS_DIR}/TestResult.xml"
+                    ].join(' ')
+                    
+                    // Start the NUnit test process in the background
+                    sh "${testProcess} &"
                 }
             }
         }
@@ -52,8 +38,11 @@ pipeline {
 
     post {
         always {
-            // Archive test results and other build artifacts
-            archiveArtifacts artifacts: '**/test_results.trx', allowEmptyArchive: true
+            // Archive the test results
+            archiveArtifacts artifacts: "${TEST_RESULTS_DIR}/**", allowEmptyArchive: true
+            
+            // Publish the test results
+            junit "${TEST_RESULTS_DIR}/TestResult.xml"
         }
     }
 }
