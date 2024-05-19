@@ -11,7 +11,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout code from GitHub
-                git branch: "${main}", url: "${https://github.com/martinlandhammar80/Flygbiljett.git}"
+                git branch: "${BRANCH}", url: "${GITHUB_REPO}"
             }
         }
         
