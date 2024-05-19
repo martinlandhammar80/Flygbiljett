@@ -2,7 +2,6 @@ pipeline {
     agent any
 
     environment {
-        // Define environment variables if needed
         GITHUB_REPO_URL = 'https://github.com/martinlandhammar80/Flygbiljett.git'
         TEST_RESULTS_DIR = 'TestResults'
     }
@@ -21,16 +20,12 @@ pipeline {
                     // Create a directory for test results
                     sh 'mkdir -p ${TEST_RESULTS_DIR}'
 
-                    // Run the NUnit tests
-                    def testProcess = [
-                        "nohup",
-                        "nunit3-console",
-                        "path/to/your/test/assembly.dll",
-                        "--result=${TEST_RESULTS_DIR}/TestResult.xml"
-                    ].join(' ')
-                    
-                    // Start the NUnit test process in the background
-                    sh "${testProcess} &"
+                    // Run the NUnit tests in the background using bash
+                    def testCommand = "nunit3-console path/to/your/test/assembly.dll --result=${TEST_RESULTS_DIR}/TestResult.xml"
+                    def backgroundCommand = "bash -c '${testCommand} &'"
+
+                    // Execute the command
+                    sh backgroundCommand
                 }
             }
         }
