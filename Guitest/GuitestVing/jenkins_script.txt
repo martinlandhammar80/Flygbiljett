@@ -1,0 +1,59 @@
+pipeline {
+    agent any
+
+    environment {
+        // Define environment variables if necessary
+        GITHUB_REPO = 'https://github.com/martinlandhammar80/Flygbiljett.git'
+        BRANCH = 'main'
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                // Checkout code from GitHub
+                git branch: "${main}", url: "${https://github.com/martinlandhammar80/Flygbiljett.git}"
+            }
+        }
+        
+        stage('Restore') {
+            steps {
+                // Restore NuGet packages
+                sh 'dotnet restore'
+            }
+        }
+        
+        stage('Build') {
+            steps {
+                // Build the solution
+                sh 'dotnet build --configuration Release'
+            }
+        }
+        
+        stage('Test') {
+            steps {
+                // Run NUnit tests
+                sh 'dotnet test --configuration Release --no-build --logger "trx;LogFileName=test_results.trx"'
+            }
+            post {
+                always {
+                    // Publish test results
+                    publishHTML(target: [
+                        allowMissing: false,
+                        alwaysLinkToLastBuild: true,
+                        keepAll: true,
+                        reportDir: 'TestResults',
+                        reportFiles: 'index.html',
+                        reportName: 'Test Report'
+                    ])
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            // Archive test results and other build artifacts
+            archiveArtifacts artifacts: '**/test_results.trx', allowEmptyArchive: true
+        }
+    }
+}

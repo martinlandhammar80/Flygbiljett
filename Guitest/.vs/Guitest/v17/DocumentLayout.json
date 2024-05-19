@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\martinl\\Desktop\\VisualStudioProjekt\\Guitest\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{57697D16-969A-4F44-8AF3-106295941792}|GuitestVing\\GuitestVing.csproj|c:\\users\\martinl\\desktop\\visualstudioprojekt\\guitest\\guitestving\\biljettest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{57697D16-969A-4F44-8AF3-106295941792}|GuitestVing\\GuitestVing.csproj|solutionrelative:guitestving\\biljettest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{57697D16-969A-4F44-8AF3-106295941792}|GuitestVing\\GuitestVing.csproj|c:\\users\\martinl\\desktop\\visualstudioprojekt\\guitest\\guitestving\\helpers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{57697D16-969A-4F44-8AF3-106295941792}|GuitestVing\\GuitestVing.csproj|solutionrelative:guitestving\\helpers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57697D16-969A-4F44-8AF3-106295941792}|GuitestVing\\GuitestVing.csproj|c:\\users\\martinl\\desktop\\visualstudioprojekt\\guitest\\guitestving\\biljettest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57697D16-969A-4F44-8AF3-106295941792}|GuitestVing\\GuitestVing.csproj|solutionrelative:guitestving\\biljettest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{57697D16-969A-4F44-8AF3-106295941792}|GuitestVing\\GuitestVing.csproj|c:\\users\\martinl\\desktop\\visualstudioprojekt\\guitest\\guitestving\\emailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -22,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
@@ -38,7 +38,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Helpers.cs",
               "DocumentMoniker": "C:\\Users\\martinl\\Desktop\\VisualStudioProjekt\\Guitest\\GuitestVing\\Helpers.cs",
               "RelativeDocumentMoniker": "GuitestVing\\Helpers.cs",
@@ -46,11 +46,12 @@
               "RelativeToolTip": "GuitestVing\\Helpers.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-16T20:18:50.871Z"
+              "WhenOpened": "2024-05-16T20:18:50.871Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Biljettest.cs",
               "DocumentMoniker": "C:\\Users\\martinl\\Desktop\\VisualStudioProjekt\\Guitest\\GuitestVing\\Biljettest.cs",
               "RelativeDocumentMoniker": "GuitestVing\\Biljettest.cs",
