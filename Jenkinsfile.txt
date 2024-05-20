@@ -30,14 +30,4 @@ pipeline {
             }
         }
     }
-
-    post {
-        always {
-            // Archive the test results
-            //archiveArtifacts artifacts: "${TEST_RESULTS_DIR}/**", allowEmptyArchive: true
-            
-            // Publish the test results
-            //junit "${TEST_RESULTS_DIR}/TestResult.xml"
-        }
-    }
 }
