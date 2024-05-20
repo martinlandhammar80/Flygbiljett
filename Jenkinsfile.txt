@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         GITHUB_REPO_URL = 'https://github.com/martinlandhammar80/Flygbiljett.git'
-        //TEST_RESULTS_DIR = 'C:\Users\martinl\Desktop\VisualStudioProjekt\Testresultat'
+        TEST_RESULTS_DIR = 'C:\Users\martinl\Desktop\VisualStudioProjekt\Testresultat'
     }
 
     stages {
