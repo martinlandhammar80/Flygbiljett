@@ -60,7 +60,7 @@ node {
         if (isUnix()) {
             sh "${nunitConsolePath} ./path/to/your/tests/bin/Debug/net6.0/YourTests.dll"
         } else {
-            bat "${nunitConsolePath} .\\C:\Users\martinl\Desktop\VisualStudioProjekt\Guitest\GuitestVing\bin\Debug\net8.0\GuitestVing.dll"
+            bat "${nunitConsolePath} .\\C:/Users/martinl/Desktop/VisualStudioProjekt/Guitest/GuitestVing/bin/Debug/net8.0/GuitestVing.dll"
         }
     }
     
