@@ -51,7 +51,7 @@ node {
         if (isUnix()) {
             sh 'dotnet build'
         } else {
-            bat 'C:\Users\martinl\Desktop\VisualStudioProjekt\Guitest\GuitestVing\GuitestVing.csproj'
+            bat 'C:/Users/martinl/Desktop/VisualStudioProjekt/Guitest/GuitestVing/GuitestVing.csproj'
         }
     }
     
