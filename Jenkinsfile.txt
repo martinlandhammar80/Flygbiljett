@@ -18,7 +18,7 @@ pipeline {
             steps {
                 script {
                     // Create a directory for test results
-                    bat 'mkdir -p ${TEST_RESULTS_DIR}'
+                    //bat 'mkdir -p ${TEST_RESULTS_DIR}'
 
                     // Run the NUnit tests in the background using bash
                     def testCommand = "nunit3-console path/to/your/test/assembly.dll --result=${TEST_RESULTS_DIR}/TestResult.xml"
