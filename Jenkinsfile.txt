@@ -21,7 +21,7 @@ pipeline {
                     //bat 'mkdir -p ${TEST_RESULTS_DIR}'
 
                     // Run the NUnit tests in the background using bash
-                    def testCommand = "nunit3-console path/to/your/test/assembly.dll --result=${TEST_RESULTS_DIR}/TestResult.xml"
+                    def testCommand = "TestContext.CurrentContext.TestDirectory.dll --result=${TEST_RESULTS_DIR}/TestResult.xml"
                     def backgroundCommand = "bash -c '${testCommand} &'"
 
                     // Execute the command
