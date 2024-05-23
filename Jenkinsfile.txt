@@ -1,4 +1,4 @@
-pipeline {
+/*pipeline {
     agent any
 
     environment {
@@ -20,8 +20,8 @@ pipeline {
                     // Create a directory for test results
                     //bat 'mkdir -p ${TEST_RESULTS_DIR}'
 					
-					bat 'echo "Running on Windows"'
-                    bat '"C:\\Program Files\\Git\\bin\\bash.exe" -c "nunit-console C:\Users\martinl\Desktop\VisualStudioProjekt\Guitest\GuitestVing\bin\Debug\net8.0\GuitestVing.dll"'
+					//bat 'echo "Running on Windows"'
+                    bat 'nunit3-console C:\Users\martinl\Desktop\VisualStudioProjekt\Guitest\GuitestVing\bin\Debug\net8.0\GuitestVing.dll"'
 
                     // Run the NUnit tests in the background using bash
                     //def testCommand = "C:\Users\martinl\Desktop\VisualStudioProjekt\Guitest\GuitestVing\bin\Debug\net8.0\GuitestVing.dll --result=${TEST_RESULTS_DIR}/TestResult.xml"
@@ -32,5 +32,40 @@ pipeline {
                 }
             }
         }
+    }
+}*/
+
+node {
+    // Define the environment variables
+    def gitRepoUrl = 'https://github.com/martinlandhammar80/Flygbiljett.git' // Replace with your GitHub repository URL
+    def gitBranch = 'main' // Replace with your branch name if it's not main
+    def nunitConsolePath = 'C:\Program Files (x86)\NUnit.org\nunit-console' // Adjust the path if necessary
+
+    stage('Clone Repository') {
+        // Clone the repository from GitHub
+        git branch: gitBranch, url: gitRepoUrl
+    }
+    
+    stage('Build') {
+        // Build the project
+        if (isUnix()) {
+            sh 'dotnet build'
+        } else {
+            bat 'dotnet build'
+        }
+    }
+    
+    stage('Test') {
+        // Run the NUnit tests
+        if (isUnix()) {
+            sh "${nunitConsolePath} ./path/to/your/tests/bin/Debug/net6.0/YourTests.dll"
+        } else {
+            bat "${nunitConsolePath} .\\C:\Users\martinl\Desktop\VisualStudioProjekt\Guitest\GuitestVing\bin\Debug\net8.0\GuitestVing.dll"
+        }
+    }
+    
+    stage('Publish Results') {
+        // Publish test results
+        junit '**/TestResult.xml'
     }
 }
