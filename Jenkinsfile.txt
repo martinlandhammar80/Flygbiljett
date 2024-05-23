@@ -39,7 +39,7 @@ node {
     // Define the environment variables
     def gitRepoUrl = 'https://github.com/martinlandhammar80/Flygbiljett.git' // Replace with your GitHub repository URL
     def gitBranch = 'main' // Replace with your branch name if it's not main
-    def nunitConsolePath = '"C:\\Program Files (x86)\\NUnit.org\\nunit-console\\nunit3-console.exe"' // Adjust the path if necessary
+    def nunitConsolePath = "\"C:\\Program Files (x86)\\NUnit.org\\nunit-console\\nunit3-console.exe\"" // Adjust the path if necessary
 	def testAssembly = 'C:\\Users\\martinl\\Desktop\\VisualStudioProjekt\\Guitest\\GuitestVing\\bin\\Debug\\net8.0\\GuitestVing.dll'
 
     stage('Clone Repository') {
@@ -61,7 +61,7 @@ node {
         if (isUnix()) {
             sh "${nunitConsolePath} ./path/to/your/tests/bin/Debug/net6.0/YourTests.dll"
         } else {
-            bat "\"${nunitConsolePath}\" --inprocess ${testAssembly}"
+            bat "${nunitConsolePath} --inprocess ${testAssembly}"
         }
     }
     
