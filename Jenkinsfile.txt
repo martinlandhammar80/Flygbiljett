@@ -21,7 +21,7 @@ pipeline {
                     //bat 'mkdir -p ${TEST_RESULTS_DIR}'
 					
 					bat 'echo "Running on Windows"'
-                    bat '"C:\\Program Files\\Git\\bin\\bash.exe" -c "nunit-console GuitestVing.dll"'
+                    bat '"C:\\Program Files\\Git\\bin\\bash.exe" -c "nunit-console C:\Users\martinl\Desktop\VisualStudioProjekt\Guitest\GuitestVing\bin\Debug\net8.0\GuitestVing.dll"'
 
                     // Run the NUnit tests in the background using bash
                     //def testCommand = "C:\Users\martinl\Desktop\VisualStudioProjekt\Guitest\GuitestVing\bin\Debug\net8.0\GuitestVing.dll --result=${TEST_RESULTS_DIR}/TestResult.xml"
